@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+<h2>Welcome</h2>
+
+<div class="span-13 push-1 last">
+  <h2 class="h1-5">Latest Posts</h2>
+
+  {% assign posts = site.posts %}
+  {% for post in posts %}
+  <h3><a href="{{ post.url }}" class="dark-link">{{ post.title }}</a></h3>
+  <h5 class="low-top">
+    Posted on {{ post.date | format_date }}
+    {% unless no_category %}
+      {% if post.category %}
+        in <a href="/categories/{{ post.category | slugize }}">{{ post.category }}</a>
+      {% endif %}
+    {% endunless %}
+  </h5>
+    {% endfor %}
+</div>
